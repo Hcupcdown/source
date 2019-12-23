@@ -2,17 +2,13 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'lzjbyjava',
+  password : '1lzjbyjava',
   database : 'test'
 });
  
 connection.connect();
  
-var sql='select * from customer'
-connection.query(sql, function (error, results) {
-  if (error) 
-  {
-    throw error;
-  }
-  console.log(results);
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
 });
